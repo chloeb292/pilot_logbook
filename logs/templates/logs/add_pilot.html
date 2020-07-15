@@ -1,0 +1,16 @@
+
+{% extends 'logs/base.html' %}
+
+
+
+{% block content %}
+
+    <h1>Add a Pilot </h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ pilot_form.as_p }}
+
+        <button type="submit">Add Pilot</button>
+    </form>
+{% endblock %}
+
