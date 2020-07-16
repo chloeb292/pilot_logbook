@@ -4,7 +4,7 @@
 
 {% for pilot in object_list %}
 <br/><br/>
-{{ pilot.first_name }} {{ pilot.last_name }} 
+{{ pilot.first_name }} {{ pilot.last_name }} <a href="pilot/{{pilot.id}}"><button type="button"> Edit </button> </a>
 
 
 {% endfor %}

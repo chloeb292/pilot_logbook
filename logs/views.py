@@ -1,7 +1,11 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse
+
+from django.views import generic
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
@@ -32,6 +36,7 @@ def add_pilot(request):
 
 
 
+
 class PilotListView(ListView):
     model = Pilot
     
@@ -39,6 +44,14 @@ class PilotListView(ListView):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
+
+class PilotDetailView(DetailView):
+    model = Pilot 
+    
+    def get(self, request, *args, **kwargs):
+        pilot = get_object_or_404(Pilot, pk=kwargs['pk'])
+        context = {'pilot': pilot}
+        return render(request, 'logs/pilot_detail.html', context)
 
 
 
