@@ -24,7 +24,7 @@ def add_pilot(request):
         if pilot_form.is_valid():
             pilot = pilot_form.save(commit=False)
             pilot.save()
-            return redirect('pilot_list')
+            return redirect('pilot-list')
     else:
         pilot_form = PilotForm()
     return render(request, 'logs/add_pilot.html', {'pilot_form': pilot_form})
