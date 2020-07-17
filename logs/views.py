@@ -5,11 +5,10 @@ from django.http import HttpResponse
 from django.views import generic
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-
-
 
 from .models import Pilot
 from .forms import PilotForm
@@ -33,6 +32,19 @@ def add_pilot(request):
         pilot_form = PilotForm()
     return render(request, 'logs/add_pilot.html', {'pilot_form': pilot_form})
 
+def pilot_edit(request, pk):
+    pilot = get_object_or_404(Pilot, pk=pk)
+    if request.method == "POST":
+        pilot_form = PilotForm(request.POST, instance=pilot)
+        if pilot_form.is_valid():
+            post = pilot_form.save(commit=False)
+            post.author = request.user
+            post.published_date = timezone.now()
+            post.save()
+            return redirect('pilot-list')
+    else:
+        pilot_form = PilotForm(instance=pilot)
+    return render(request, 'logs/add_pilot.html', {'pilot_form': pilot_form})
 
 
 

@@ -1,10 +1,13 @@
+
+
+
 <h1> These are all the pilots currently registered :D </h1>
 <li><a href="add_pilot"> Register another pilot</a></li> 
 
 
 {% for pilot in object_list %}
 <br/><br/>
-{{ pilot.first_name }} {{ pilot.last_name }} <a href="pilot/{{pilot.id}}"><button type="button"> Edit </button> </a>
+{{ pilot.first_name }} {{ pilot.last_name }} <a href="pilot/{{pilot.id}}"><button type="button"> Pilot Info </button> </a>
 
 
 {% endfor %}

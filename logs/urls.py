@@ -12,6 +12,8 @@ urlpatterns = [
     path('add_pilot', views.add_pilot, name='add_pilot'),
     path('pilot_display', PilotListView.as_view(), name='pilot-list'),
     path('pilot/<int:pk>/', views.PilotDetailView.as_view(), name='pilot-detail'),
+    path('pilot/<int:pk>/edit/', views.pilot_edit, name='pilot_edit'),
+
 
     
 ]
