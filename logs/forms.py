@@ -1,3 +1,5 @@
+
+
 from django import forms
 from .models import Pilot
 from .models import LogbookEntry
@@ -21,4 +23,24 @@ class PilotForm(forms.ModelForm):
             'state',
             'zipcode',
             'country',
+]
+
+
+
+class LogbookEntryForm(forms.ModelForm):
+    class Meta:
+        model = LogbookEntry
+        fields = [
+            'pilot',
+            'departure_apt',
+            'arrival_apt',
+            'departure_date',
+
         ]
+
+
+
+
+
+
+        
