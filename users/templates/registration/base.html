@@ -1,7 +1,44 @@
-
-<!DOCTYPE html>
 <html>
 <head>
+
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+    
+    li {
+      float: left;
+    }
+    
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover {
+      background-color: #111;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <ul>
+      <li><a class="active" href="/logs">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+
+
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body, html {
@@ -17,6 +54,8 @@ body, html {
 .bg-image {
   /* The image used */
   background-image: url('/static/imgs/airplane.jpg');
+  
+  opacity: 0.75;
   
   /* Add the blur effect */
   filter: blur(8px);
@@ -54,9 +93,8 @@ body, html {
 <div class="bg-image"></div>
 
 <div class="bg-text">
-  <h1 style="font-size:50px">Welcome to My Pilot Logbook!</h1>
-  <a href="/logs/pilot_display" style="color: white"><h2>Let's Get Started</h2></a>
-  
+  <h1 style="font-size:50px"></h1>
+  {% block content %}{% endblock %}
 </div>
 
 </body>

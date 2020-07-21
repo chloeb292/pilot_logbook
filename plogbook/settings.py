@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
+
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser' # new
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +60,7 @@ ROOT_URLCONF = 'plogbook.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # new
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,3 +130,6 @@ STATICFILES_DIRS = [
    ]
 
 STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
+
+LOGIN_REDIRECT_URL = 'main_page'
+LOGOUT_REDIRECT_URL = 'main_page'

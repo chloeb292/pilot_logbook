@@ -11,7 +11,6 @@ from .views import LogbookListView
 
 
 urlpatterns = [
-    path('', views.index),
     path('add_pilot', views.add_pilot, name='add_pilot'),
     path('pilot/<int:pk>/add_logbook_entry', views.add_logbook_entry, name='add_logbook_entry'),
 

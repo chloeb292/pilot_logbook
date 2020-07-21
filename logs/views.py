@@ -20,9 +20,6 @@ from .forms import LogbookEntryForm
 
 # Create your views here.
 
-def index(request):
-    return render(request, 'logs/main_page.html')
-
 def add_pilot(request):
     if request.method == "POST":
         pilot_form = PilotForm(request.POST)

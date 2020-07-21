@@ -1,3 +1,5 @@
+
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -30,7 +32,7 @@
     <body>
     
     <ul>
-      <li><a class="active" href="/">Home</a></li>
+      <li><a class="active" href="">Home</a></li>
       <li><a href="#news">News</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#about">About</a></li>
@@ -54,8 +56,6 @@ body, html {
 .bg-image {
   /* The image used */
   background-image: url('/static/imgs/airplane.jpg');
-  
-  opacity: 0.75;
   
   /* Add the blur effect */
   filter: blur(8px);
@@ -93,9 +93,27 @@ body, html {
 <div class="bg-image"></div>
 
 <div class="bg-text">
-  <h1 style="font-size:50px"></h1>
-  {% block content %}{% endblock %}
+
+  {% if user.is_authenticated %}
+  <h1 style="font-size:50px">Welcome {{ user.username }}, to My Pilot Logbook!</h1>
+  <a href="" style="color: white">  <h1 style="font-size:30px">Let's go check out your stuff</h1>   </a>
+  <p><a href="{% url 'logout' %}" style="color: rgb(173, 195, 255)">Logout</a></p>
+  {% else %}
+  <h1 style="font-size:50px">Welcome to My Pilot Logbook!</h1>
+    Already Have an Account? ---  <a href="{% url 'login' %}" style="color: white">Login Here</a>
+    <br></br>
+    Want to Join? ---  <a href="{% url 'signup' %}" style="color: white">Sign Up Here</a>
+
+  {% endif %}
+  
+  <a href="/logs/pilot_display" style="color: red"><h2>OLD LINK TO LIST OF PILOTS </h2></a>
+  
 </div>
+
+
+
+
+
 
 </body>
 </html>

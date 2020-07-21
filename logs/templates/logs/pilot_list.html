@@ -1,12 +1,6 @@
 {% extends 'logs/base.html' %}
 {% block content %}
 
-<h1> These are  pilots currently registered :D </h1> 
-<h2> <a href="add_pilot" style="color: rgb(48, 60, 71)"> Register another pilot</a></h2>
-
-
-
-
 {% for pilot in object_list %}
 <br/><br/>
 
@@ -15,3 +9,8 @@
 {% endfor %}
 
 {% endblock %}
+
+
+<!--
+     <h2> <a href="add_pilot" style="color: rgb(48, 60, 71)"> Register another pilot</a></h2>    
+-->
